@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Attendance Report</h2>
+
+    {% for subject, percent, zone in data.attendance %}
+        <p>{{subject}} - {{percent}} ({{zone}})</p>
+    {% endfor %}
+
+    <h3>Zone Analysis</h3>
+
+    {% for zone, items in data.zones.items() %}
+        <h4>{{zone}}</h4>
+
+        {% for item in items %}
+            <p>{{item}}</p>
+        {% endfor %}
+
+    {% endfor %}
+
+    <a href="/menu"><button>Back</button></a>
+
+</div>
+
+</body>
+</html>
